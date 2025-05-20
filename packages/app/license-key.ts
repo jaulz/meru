@@ -1,6 +1,6 @@
 import { config } from "@/config";
 import { appState } from "@/state";
-import { type MessageBoxOptions, dialog } from "electron";
+import { type MessageBoxOptions, app, dialog } from "electron";
 import { z } from "zod";
 
 const licenseKeyActivationSuccessSchema = z.object({
@@ -81,4 +81,5 @@ function showLicenseKeyValidationError(
 
 export async function validateLicenseKey() {
 	appState.isLicenseKeyValid = true;
+	app.relaunch();
 }
