@@ -18,7 +18,8 @@
 		"build:js": "MERU_API_URL=https://api.meru.so bun run scripts/build.ts",
 		"build:mac": "electron-builder --mac",
 		"build:linux": "electron-builder --linux",
-		"build:win": "electron-builder --win"
+		"build:win": "electron-builder --win",
+		"build": "bun run build:js && bun run build:mac -- --publish never"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
